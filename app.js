@@ -4,8 +4,21 @@ var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var expressSanitizer = require("express-sanitizer");
 var app = express();
+var port = process.env.Port || 3000;
 
-mongoose.connect("mongodb://localhost/y", {useNewUrlParser: true, useUnifiedTopology: true})
+// const MongoClient = require('mongodb').MongoClient;
+// const uri = "mongodb+srv://blog:kissme013@blogapp-fcwtu.mongodb.net/test?retryWrites=true&w=majority";
+// const client = new MongoClient(uri, {useNewUrlParser: true, useUnifiedTopology: true});
+// client.connect(err => {
+//   const collection = client.db("test").collection("devices");
+//   // perform actions on the collection object
+//   client.close();
+// });
+
+var atlasUri = "mongodb+srv://blog:kissme013@blogapp-fcwtu.mongodb.net/test?retryWrites=true&w=majority";
+var uri = "mongodb://localhost/y";
+
+mongoose.connect(atlasUri || uri, {useNewUrlParser: true, useUnifiedTopology: true})
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
@@ -94,6 +107,6 @@ app.delete("/blogs/:id", function(req, res){
     })
 })
 
-app.listen(3000, function(){
+app.listen(port, function(){
     console.log("Server Is Running");
 });
