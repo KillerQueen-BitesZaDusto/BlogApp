@@ -4,7 +4,7 @@ var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var expressSanitizer = require("express-sanitizer");
 var app = express();
-var port = process.env.Port || 3000;
+var port = process.env.PORT || 3000;
 
 // const MongoClient = require('mongodb').MongoClient;
 // const uri = "mongodb+srv://blog:kissme013@blogapp-fcwtu.mongodb.net/test?retryWrites=true&w=majority";
