@@ -18,7 +18,7 @@ var port = process.env.Port || 3000;
 var atlasUri = "mongodb+srv://blog:kissme013@blogapp-fcwtu.mongodb.net/test?retryWrites=true&w=majority";
 var uri = "mongodb://localhost/y";
 
-mongoose.connect(atlasUri || uri, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(atlasUri, {useNewUrlParser: true, useUnifiedTopology: true})
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
